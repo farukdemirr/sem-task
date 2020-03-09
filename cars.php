@@ -48,8 +48,6 @@ if (!empty($model)){
     $where_clause_values['model'] = $model;
 }
 
-
-
 if (!empty($where_string_clause)) {
     $sql .= " WHERE " . implode(' AND ', $where_string_clause);
 }
@@ -57,6 +55,5 @@ if (!empty($where_string_clause)) {
 $sth = $db->prepare($sql);
 $sth->execute($where_clause_values);
 $cars = $sth->fetchAll(PDO::FETCH_CLASS);
-
 
 echo json_encode($cars);
